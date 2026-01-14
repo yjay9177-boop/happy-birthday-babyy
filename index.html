@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Kalaylay ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Segoe UI",sans-serif;
+  background:linear-gradient(180deg,#ffe6f0,#fff);
+  overflow:hidden;
+}
+
+/* ---------- SLIDES ---------- */
+.slide{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  transition:opacity 1.5s ease, transform 1.5s ease;
+}
+.slide.active{display:flex;opacity:1}
+.slide.exit{opacity:0;transform:translateX(-80px)}
+
+/* ---------- FLOATING ---------- */
+.float{
+  position:absolute;
+  top:-20px;
+  pointer-events:none;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+/* ---------- SLIDE 1 ---------- */
+#slide1{
+  flex-direction:row;
+  padding:40px;
+}
+.lock-box{
+  background:white;
+  padding:40px;
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  text-align:center;
+}
+.lock-box input{
+  width:70px;
+  font-size:20px;
+  margin:10px;
+  padding:10px;
+  text-align:center;
+  border-radius:12px;
+  border:2px solid #ff7aa8;
+}
+.lock-box button{
+  padding:12px 30px;
+  background:#ff5f9e;
+  color:white;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+#slide1 img{
+  width:320px;
+  margin-left:50px;
+  border-radius:25px;
+  box-shadow:0 25px 50px rgba(0,0,0,.35);
+}
+
+/* ---------- SLIDE 2 ---------- */
+#slide2 h1{font-size:42px;color:#ff4d88}
+#cake{
+  width:260px;
+  margin:25px 0;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  50%{transform:translateY(-14px)}
+}
+
+/* ---------- SLIDE 3 ---------- */
+.timer{
+  display:flex;
+  gap:18px;
+  margin:20px 0;
+}
+.timer div{
+  background:white;
+  padding:15px 22px;
+  border-radius:20px;
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+.timer span{
+  font-size:26px;
+  color:#ff4d88;
+  font-weight:bold;
+}
+.photos{
+  width:95%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:35px;
+}
+.photos img{
+  width:160px;
+  height:240px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+.photos .center{
+  width:220px;
+  height:320px;
+}
+
+/* ---------- SLIDE 4 ---------- */
+#slide4{position:relative}
+.envelope{
+  width:260px;
+  height:170px;
+  background:#ff6f91;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+  cursor:pointer;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  50%{transform:scale(1.06)}
+}
+.letter{
+  display:none;
+  background:white;
+  width:90%;
+  max-width:760px;
+  max-height:80vh;
+  padding:40px 45px;
+  border-radius:30px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  white-space:pre-wrap;
+  overflow-wrap:break-word;
+  line-height:1.8;
+  font-size:17px;
+  overflow-y:auto;
+}
+.next-btn{
+  position:absolute;
+  bottom:25px;
+  right:30px;
+  background:#ff5f9e;
+  color:white;
+  padding:12px 22px;
+  border-radius:25px;
+  cursor:pointer;
+  display:none;
+}
+
+/* ---------- SLIDE 5 ---------- */
+#slide5{
+  background:linear-gradient(180deg,#fff0f6,#ffe6f0);
+}
+.sparkle-frame{
+  padding:12px;
+  border-radius:30px;
+  animation:sparkle 2s infinite;
+}
+@keyframes sparkle{
+  0%,100%{box-shadow:0 0 15px hotpink}
+  50%{box-shadow:0 0 35px deeppink}
+}
+.sparkle-frame img{
+  width:320px;
+  max-width:80vw;
+  border-radius:25px;
+}
+.left-text,.right-text{
+  position:absolute;
+  opacity:0;
+  font-size:26px;
+}
+.left-text{
+  left:6%;
+  top:50%;
+  transform:translateY(-50%);
+  color:#ff4d88;
+}
+.right-text{
+  right:6%;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:22px;
+  color:#b8005c;
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:600px){
+  #slide1{flex-direction:column}
+  #slide1 img{margin:30px 0 0}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div id="slide1" class="slide active">
+  <div class="lock-box">
+    <h2>🔒 Enter Your Birthday, Baby 💖</h2>
+    <input id="day" placeholder="DD">
+    <input id="month" placeholder="MM"><br>
+    <button onclick="unlock()">Unlock 💞</button>
+  </div>
+  <img src="images/slide1.jpg">
+</div>
+
+<!-- SLIDE 2 -->
+<div id="slide2" class="slide">
+  <h1>Happy Birthday Kalaylay 💖</h1>
+  <img id="cake" src="images/cake.png">
+  <h2>Make a Wish ✨</h2>
+</div>
+
+<!-- SLIDE 3 -->
+<div id="slide3" class="slide">
+  <h1>⏳ Time Since You Said “YES”</h1>
+  <div class="timer">
+    <div><span id="days">0</span><br>Days</div>
+    <div><span id="hours">0</span><br>Hours</div>
+    <div><span id="minutes">0</span><br>Minutes</div>
+    <div><span id="seconds">0</span><br>Seconds</div>
+  </div>
+  <div class="photos">
+    <img src="images/love1.jpg">
+    <img src="images/love2.jpg">
+    <img src="images/love3.jpg" class="center">
+    <img src="images/love4.jpg">
+    <img src="images/love5.jpg">
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div id="slide4" class="slide">
+  <div class="envelope" onclick="openLetter()">💌 Click This Love Letter</div>
+  <div class="letter" id="letter"></div>
+  <div class="next-btn" onclick="toSlide5()">Next ➜</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div id="slide5" class="slide">
+  <div class="sparkle-frame">
+    <img src="images/slide5.jpg">
+  </div>
+  <div class="left-text">Happy Birthday, Baby 🎉🤍</div>
+  <div class="right-text">
+    May you be able to fulfill all your wishes,<br>
+    today and always.
+  </div>
+</div>
+
+<audio id="song" src="audio/happy-birthday.mp3"></audio>
+
+<script>
+/* ---------- SLIDE FLOW ---------- */
+function unlock(){
+  if(day.value=="15" && month.value=="1"){
+    slide1.classList.add("exit");
+    setTimeout(()=>{
+      slide1.classList.remove("active");
+      slide2.classList.add("active");
+      song.play();
+      setTimeout(toSlide3,6000);
+    },1200);
+  }else alert("Wrong date 💔");
+}
+function toSlide3(){
+  slide2.classList.add("exit");
+  setTimeout(()=>{
+    slide2.classList.remove("active");
+    slide3.classList.add("active");
+    setTimeout(toSlide4,6000);
+  },1200);
+}
+function toSlide4(){
+  slide3.classList.add("exit");
+  setTimeout(()=>{
+    slide3.classList.remove("active");
+    slide4.classList.add("active");
+  },1200);
+}
+function toSlide5(){
+  slide4.classList.add("exit");
+  setTimeout(()=>{
+    slide4.classList.remove("active");
+    slide5.classList.add("active");
+    setTimeout(()=>document.querySelector(".left-text").style.opacity=1,2000);
+    setTimeout(()=>document.querySelector(".right-text").style.opacity=1,4000);
+  },1200);
+}
+
+/* ---------- TIMER ---------- */
+const start=new Date("2024-07-24T00:00:00");
+setInterval(()=>{
+  const d=new Date()-start;
+  days.innerText=Math.floor(d/86400000);
+  hours.innerText=Math.floor(d/3600000)%24;
+  minutes.innerText=Math.floor(d/60000)%60;
+  seconds.innerText=Math.floor(d/1000)%60;
+},1000);
+
+/* ---------- FLOATING ---------- */
+setInterval(()=>{
+  const f=document.createElement("div");
+  f.className="float";
+  f.innerText=Math.random()>0.5?"❤️":"🌹";
+  f.style.left=Math.random()*100+"vw";
+  f.style.fontSize=Math.random()*18+18+"px";
+  f.style.animationDuration=Math.random()*6+8+"s";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),12000);
+},450);
+
+/* ---------- LOVE LETTER ---------- */
+const text=`Happy Birthday, my birthday girl 💃
+
+Go slay on your birthday—no matter what happens today, just dgaf, darling. I’m always by your side. Dare to do everything.
+
+I wish for you to become a woman who earns everything she wants. May you always be in the pink of health and on cloud nine every single day.
+
+I love you in every universe, baby. You filled my blanks and corrected my errors. I cherish you, sweetie.
+Mwahhhh 💋💋💋`;
+
+let i=0;
+function openLetter(){
+  document.querySelector(".envelope").style.display="none";
+  const box=document.getElementById("letter");
+  box.style.display="block";
+  const t=setInterval(()=>{
+    box.textContent+=text.charAt(i);
+    i++;
+    if(i>=text.length){
+      clearInterval(t);
+      document.querySelector(".next-btn").style.display="block";
+    }
+  },35);
+}
+</script>
+
+</body>
+</html>

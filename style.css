@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  background: linear-gradient(120deg,#ffe6f0,#fff);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide.active { display: flex; }
+
+.lock input {
+  padding: 12px;
+  width: 80px;
+  margin: 5px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  background: hotpink;
+  color: white;
+  cursor: pointer;
+}
+
+.cake {
+  width: 250px;
+  animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+
+.timer {
+  display: flex;
+  gap: 15px;
+}
+
+.timer div {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.photos img {
+  width: 160px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.envelope {
+  background: pink;
+  padding: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.letter {
+  display: none;
+  max-width: 600px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.next-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.main-photo {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px pink;
+}
+
+.text-left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+}
+
+.text-right {
+  position: absolute;
+  right: 20px;
+  top: 60%;
+}
+
+.link-image {
+  width: 200px;
+  cursor: pointer;
+}
+
+video {
+  width: 80%;
+  max-width: 500px;
+  margin-top: 20px;
+}
